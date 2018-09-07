@@ -17,3 +17,10 @@
 	font-family: Arial, sans-serif;
 	font-size: 40px;
 }
+
+#lvles p {
+	display: inline-block;
+	font-family: Arial, sans-serif;
+	font-size: 15px;
+	margin-right: 20px;
+}
