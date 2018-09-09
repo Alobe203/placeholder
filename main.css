@@ -1,42 +1,28 @@
-#out {
-	margin: 0 auto;
-	position: relative;
-	top: 300px;
-	width: 500px;
-	text-align: center;
-	font-family: Arial, sans-serif;
-	font-size: 30px;
+* {
+	margin: 0;
+	padding: 0;
 }
 
-#data {
-	display: block;
-	margin: 0 auto;
-	top: 300px;
+#game {
+	display: grid;
 	position: relative;
-	width: 300px;
-	height: 40px;
-	font-family: Arial, sans-serif;
-	font-size: 30px;
-	outline: none;
-	text-align: center;
+	grid-template-columns: repeat(8, 72px);
+	grid-template-rows: repeat(8, 72px);
+	border: 2px solid red;
+	grid-gap: 5px;
+	width: 611px;
 }
-#new {
-	display: none;
-	margin: 0 auto;
-	position: relative;
-	top: 320px;
-	width: 150px;
-	height: 40px;
+.item {
 	background: orange;
-	border: 2px solid black;
-	border-radius: 5px;
 }
 
-#new:hover {
-	cursor: pointer;
-	box-shadow: 0 0 10px 0 rgba(0,0,0, .5);
-}
-#new active {
-	outline: none;
-	box-shadow: 0 0 30px 0 rgba(0,0,0, .2);
+#main_player {
+	width: 72px;
+	height: 72px;
+	background: #000;
+	border-radius: 30px;
+	transition: all ease .1s;
+	position: absolute;
+	top: 2px;
+	left: 2px;
 }
