@@ -1,28 +1,21 @@
-* {
-	margin: 0;
-	padding: 0;
+#circle {
+	clip-path: circle(50.0% at 50% 50%);
+	background: blue;
+	width: 500px;
+	height: 500px;
 }
-
-#game {
-	display: grid;
-	position: relative;
-	grid-template-columns: repeat(8, 72px);
-	grid-template-rows: repeat(8, 72px);
-	border: 2px solid red;
-	grid-gap: 5px;
-	width: 611px;
-}
-.item {
-	background: orange;
-}
-
-#main_player {
-	width: 72px;
-	height: 72px;
+#circle2 {
 	background: #000;
-	border-radius: 30px;
-	transition: all ease .1s;
+	clip-path: circle(38.0% at 50% 50%);
+	width: 400px;
+	height: 400px;
+	margin: 0 auto;
 	position: absolute;
-	top: 2px;
-	left: 2px;
+	top: 50px;
+	left: 60px;
+}
+#test {
+	width: 600px;
+	height: 0;
+	background: #fff;
 }
