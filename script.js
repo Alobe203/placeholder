@@ -1,6 +1,6 @@
 
 
-if(window.innerWidth<960){
+if(window.screen.width<960){
 	document.getElementsByClassName('main_menu')[0].style.display = 'none';
 	document.getElementById('mini_menu').style.display = 'flex';
 }
