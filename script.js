@@ -1,15 +1,35 @@
+var p = document.getElementsByTagName('p')[0];
+var inp = document.querySelector('#inp');
 
-
-if(window.screen.width<960){
-	document.getElementsByClassName('main_menu')[0].style.display = 'none';
-	document.getElementById('mini_menu').style.display = 'flex';
-}
-
-document.getElementsByClassName('mini_menu_child')[0].onclick = function move_menu(){
-	document.getElementsByClassName('move_menu_container')[0].style.left = 0 + 'px';
-	document.getElementsByClassName('move_menu_container')[0].onmouseleave = function(){
-		document.getElementsByClassName('move_menu_container')[0].style.left = 500 + 'px';
+document.getElementById('2ich').onclick = function(){
+	var n;
+	var r = '';
+	for(x = 1;Math.floor(inp.value/x)!=1; x=x*2){
+		if(Math.floor(inp.value/x)%2==0){
+			r = r + '0';
+		}
+		else {
+			r = r + '1';
+		}
 	}
+	r = r.split('');
+	r = r.reverse();
+	r = r.join('');
+	p.innerHTML = Math.floor(inp.value/x) + r;
 }
-
-alert(window.screen.width);
+document.getElementById('10ich').onclick = function(){
+	var sum;
+	var arr = inp.value.split('');
+	for(i=0;i<arr.length;i++){
+		if(arr[i]>1){
+			alert('Вы ввели уже десятичное число')
+			return false;
+		}
+	}
+	arr = arr.reverse();
+	var sum = 0;
+	for(i=0;i<arr.length;i++){
+		sum += arr[i]*Math.pow(2, i);
+	}
+	p.innerHTML = sum;
+}
