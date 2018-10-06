@@ -1,35 +1,55 @@
-var p = document.getElementsByTagName('p')[0];
-var inp = document.querySelector('#inp');
+main();
+function main(){
+	var inp = document.getElementById('inp');
+	var first = 'foo@bar.com';
+	var second = 'john.doe@gmail.com';
+	var x = 0;
+	var y = 0;
 
-document.getElementById('2ich').onclick = function(){
-	var n;
-	var r = '';
-	for(x = 1;Math.floor(inp.value/x)!=1; x=x*2){
-		if(Math.floor(inp.value/x)%2==0){
-			r = r + '0';
-		}
-		else {
-			r = r + '1';
-		}
+	one();
+	function one(){
+		var timer1 = setInterval(function() {
+			if(x<=(first.length-1)){
+				x++;
+				inp.placeholder += first[x-1];
+			}
+			else {
+				clearInterval(timer1);
+				var timer2 = setInterval(function() {
+					if(first.length!=0){
+						first = first.substring(first.length-1, 0);
+						inp.placeholder = 'Eg. ' + first;
+					}
+					else {
+						clearInterval(timer2);
+						two();
+						function two(){
+							var timer3 = setInterval(function() {
+								if(y<=(second.length-1)){
+									y++;
+									inp.placeholder += second[y-1];
+								}
+								else {
+									clearInterval(timer3);
+									var timer4 = setInterval(function() {
+										if(second.length!=0){
+											second = second.substring(second.length-1, 0);
+											inp.placeholder = 'Eg. ' + second;
+										}
+										else {
+											clearInterval(timer4);
+											main();
+										}			
+									}, 100)
+								}
+							}, 100);
+						}
+					}			
+				}, 100)
+			}
+		}, 100);
 	}
-	r = r.split('');
-	r = r.reverse();
-	r = r.join('');
-	p.innerHTML = Math.floor(inp.value/x) + r;
 }
-document.getElementById('10ich').onclick = function(){
-	var sum;
-	var arr = inp.value.split('');
-	for(i=0;i<arr.length;i++){
-		if(arr[i]>1){
-			alert('Вы ввели уже десятичное число')
-			return false;
-		}
-	}
-	arr = arr.reverse();
-	var sum = 0;
-	for(i=0;i<arr.length;i++){
-		sum += arr[i]*Math.pow(2, i);
-	}
-	p.innerHTML = sum;
-}
+
+
+
